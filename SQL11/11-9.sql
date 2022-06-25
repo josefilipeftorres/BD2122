@@ -1,0 +1,9 @@
+SELECT COUNTRY.Name, Label, COUNT(StreamId) AS N 
+FROM
+    (GENRE JOIN MOVIE_GENRE USING (GenreId)
+    JOIN CUSTOMER JOIN COUNTRY ON (Country = COUNTRY.Name)
+    JOIN REGION USING (RegionId))
+    LEFT JOIN STREAM USING (CustomerId,MovieId)
+WHERE REGION.Name = 'Other Countries'
+GROUP BY COUNTRY.Name, Label
+ORDER BY COUNTRY.Name, Label;

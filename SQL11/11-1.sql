@@ -1,0 +1,5 @@
+SELECT Name, COUNT(StreamId) AS N, SUM(Charge) AS N
+FROM CUSTOMER LEFT JOIN STREAM USING (CustomerId)
+WHERE Country = 'India'
+GROUP BY Name
+HAVING N <= 5;

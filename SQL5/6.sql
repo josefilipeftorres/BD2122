@@ -1,0 +1,30 @@
+-- 6.1
+SELECT Author, COUNT(*) AS NumPosts 
+FROM COMMENT 
+GROUP BY Author
+ORDER BY NumPosts DESC, Author DESC;
+
+-- 6.2
+SELECT Author, COUNT(*) AS NumPosts, SUM(LENGTH(Content)) AS ContentLength
+FROM COMMENT
+GROUP BY Author
+ORDER BY NumPosts DESC, ContentLength;
+
+-- 6.3
+SELECT YEAR(BirthDate) AS Y, MONTH(BirthDate) AS M,COUNT(Login) AS N
+FROM USER
+GROUP BY Y, M
+ORDER BY Y, M;
+
+-- 6.4
+SELECT User, COUNT(*) AS N FROM FOLLOWER
+GROUP BY User
+HAVING N >= 3
+ORDER BY N DESC, User;
+
+-- 6.5
+SELECT Follower, COUNT(*) AS N 
+FROM FOLLOWER
+GROUP BY Follower
+ORDER BY N DESC, Follower
+LIMIT 3;

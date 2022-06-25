@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Supplies{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Name</b></th>
+    <th><b>Supplies for (Total of Gyms)</b></th>
+   </tr>
+  {% for s in suppliers %}
+    <tr>
+      <td>{{s.Fornecedor }}</td>
+      <td>{{ s.N }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

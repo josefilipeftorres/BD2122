@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ staff.Nome }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Staff info</h2>
+  <p>
+    <b>StaffId: </b>{{ staff.CodigoFunc }}
+  </p>
+  <p>
+    <b>Name: </b>{{ staff.Nome }}
+  </p>
+  <p>
+    <b>Role: </b>{{ staff.Cargo }}
+  </p>
+  <p>
+    <b>BirthDate: </b>{{ staff.DataNasc }}
+  </p>
+  <p>
+    <b>Email: </b>{{ staff.Email }}
+  </p>
+  <p>
+    <b>Phone: </b>{{ staff.Num }}
+  </p>
+  <p>
+    <b>Salary: </b>{{ staff.Salario }} €
+  </p>
+  
+  {% if 'Nome' in gym %}
+  <p>
+    <b>Gym: </b><a href="/gyms/{{ staff.Espaco }}">{{ gym.Nome }}</a>
+  </p>
+  {% endif %}
+
+  {% if customersT %}
+  <p>
+    <b>Customers: </b><ul>
+    {% for c in customersT %}      
+      <li><a href="/clients/{{ c.Codigo }}">{{ c.Nome }}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+  {% endif %}
+
+  {% if customersN %}
+  <p>
+    <b>Customers: </b><ul>
+    {% for c in customersN %}      
+      <li><a href="/clients/{{ c.Codigo }}">{{ c.Nome }}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+  {% endif %}
+
+{% endblock %}

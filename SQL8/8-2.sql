@@ -1,0 +1,9 @@
+DROP VIEW STREAM_COUNT_BY_COUNTRY;
+
+CREATE VIEW STREAM_COUNT_BY_COUNTRY
+(Country, StreamCount)
+AS (
+    SELECT Country, COUNT(StreamId) AS StreamCount
+    FROM CUSTOMER LEFT JOIN STREAM USING (CustomerId)
+    GROUP BY Country
+);

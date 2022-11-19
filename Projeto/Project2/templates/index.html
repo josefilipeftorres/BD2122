@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Gym Chain database {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h2>About</h2>
+<p>This web application illustrates the use of the Gym Chain
+database. The application is built using 
+<a href="https://pymysql.readthedocs.io/">PyMySQL</a>,
+<a href="https://flask.palletsprojects.com">Flask</a>, and
+<a href="https://jinja.palletsprojects.com">Jinja</a>.
+</p>
+
+<h2>Some database statistics</h2>
+<table>
+<tr>
+  <th>Items</th>
+  <th>Count</th>
+</tr>
+<tr>
+  <td>Clients</td>
+  <td>{{ stats.clients }}</td>
+</tr>
+<tr>
+  <td>Staff</td>
+  <td>{{ stats.staff }}</td>
+</tr>
+<tr>
+  <td>Gyms</td>
+  <td>{{ stats.gyms }}</td>
+</tr>
+<tr>
+  <td>Suppliers</td>
+  <td>{{ stats.suppliers }}</td>
+</tr>
+</table>
+
+
+<h2>Sample functionality</h2>
+
+<h3>Clients</h3>
+<p>
+   <a href="/clients">List all</a>
+</p>
+<p>Get client info:
+<form name="cid" action="javascript:window.open('/clients/'+document.forms['cid'].elements['id'].value,'_self')">
+   Client Id:<input value="579437" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+  
+<p>Search by Name:
+<form name="csearch" action="javascript:window.open('/clients/search/'+document.forms['csearch'].elements['expr'].value,'_self')">
+  <input name="expr" id="expr" value="Pinto" required/>
+  <input type="submit" value="search"/>
+</form>
+</p>
+
+<h3>Staff</h3>
+<p>
+   <a href="/staff">List all</a>
+</p>
+<p>Get staff info:
+<form name="sid" action="javascript:window.open('/staff/'+document.forms['sid'].elements['id'].value,'_self')">
+   Staff Id:<input value="238139" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+  
+<p>Search by Name
+  <form name="ssearch" action="javascript:window.open('/staff/search/'+document.forms['ssearch'].elements['expr'].value,'_self')">
+    <input name="expr" id="expr" value="Jose" required/>
+    <input type="submit" value="search"/>
+  </form>
+</p>
+
+<h3>Gyms</h3>
+<p>
+   <a href="/gyms">List all</a>
+</p>
+
+<h3>Suppliers</h3>
+<p>
+   <a href="/suppliers">List all</a>
+</p>
+
+{% endblock %}

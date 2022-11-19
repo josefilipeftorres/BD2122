@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ gym.Nome }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Gym info</h2>
+  <p>
+    <b>Name: </b>{{ gym.Nome }}
+  </p>
+  <p>
+    <b>Morada: </b>{{ gym.MRua }} {{ gym.MNum }}
+  </p>
+  <p>
+    <b>Postal Code: </b>{{ gym.MCodPostal }} {{ gym.MLocalidade }}
+  </p>
+  
+  {% if 'Nome' in manager %}
+  <p>
+    <b>Manager: </b><a href="/staff/{{ gym.Gestor }}">{{ manager.Nome }}</a>
+  </p>
+  {% endif %}
+
+  {% if staff %}
+  <p>
+    <b>Staff: </b><ul>
+    {% for s in staff %}      
+      <li><a href="/staff/{{ s.CodigoFunc }}">{{ s.Nome }}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,10 @@
+SELECT Title, REGION.Name, COUNT(StreamId) AS N
+FROM 
+    (MOVIE JOIN REGION)
+    LEFT JOIN 
+    (STREAM JOIN CUSTOMER USING (CustomerId)
+        JOIN COUNTRY ON (CUSTOMER.Country = COUNTRY.Name)) USING (RegionId,MovieId)
+WHERE
+    Title LIKE '%war%'
+GROUP BY Title, REGION.Name
+ORDER BY Title, REGION.Name;

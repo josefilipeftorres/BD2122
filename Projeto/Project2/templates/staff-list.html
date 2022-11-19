@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Staff{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Id</b></th>
+    <th><b>Name</b></th>
+   </tr>
+   
+  {% for s in staff %}
+    <tr>
+      <td><a href="/staff/{{ s.CodigoFunc }}">{{s.CodigoFunc }}</a></td>
+      <td>{{ s.Nome }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

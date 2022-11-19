@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Clients{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Id</b></th>
+    <th><b>Name</b></th>
+    <th><b>Gyms Attended</b></th>
+   </tr>
+   
+  {% for client in clients %}
+    <tr>
+      <td><a href="/clients/{{ client.Codigo }}">{{client.Codigo }}</a></td>
+      <td>{{ client.Nome }}</td>
+      <td>{{ client.Gyms_attended }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

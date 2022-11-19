@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ client.Nome }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Client info</h2>
+  <p>
+    <b>ClientId: </b>{{ client.Codigo }}
+  </p>
+  <p>
+    <b>Name: </b>{{ client.Nome }}
+  </p>
+  <p>
+    <b>BirthDate: </b>{{ client.DataNasc }}
+  </p>
+  <p>
+    <b>Plan: </b>{{ client.Plano }} 
+  </p>
+  
+  {% if 'Nome' in coach %}
+  <p>
+    <b>Coach: </b><a href="/staff/{{ client.Treinador }}">{{ coach.Nome }}</a>
+  </p>
+  {% endif %}
+
+  {% if 'Nome' in nutritionist %}
+  <p>
+    <b>Nutritionist: </b><a href="/staff/{{ client.Nutricionista }}">{{ nutritionist.Nome }}</a>
+  </p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,53 @@
+CLIENTE 
+(
+  _ Código _ , 
+  Nome,
+  Plano,
+  DataNasc,
+  . Idade . ,
+  Email ? ,
+  Morada(Num, Rua, Andar?, CodPostal, Localidade),
+  { NumTelef }
+)
+
+FUNCIONÁRIO 
+(
+  _ CódigoFunc _ ,
+  Cargo,
+  Nome,
+  Salário,
+  DataNasc,
+  . Idade . ,
+  Email,
+  Morada(Num, Rua, Andar?, CodPostal, Localidade),
+  { NumTelef }
+)
+
+ESPAÇO 
+(
+  _ CodEspaço _ ,
+  Nome,
+  Morada(Num, Rua, Andar?, CodPostal, Localidade)
+)
+
+FORNECEDOR 
+(
+  _ Nome _ ,
+  Email,  
+  Custo,
+  Morada(Num, Rua, Andar?, CodPostal, Localidade),
+  Propósito,
+  { NumTelef }
+)
+
+FUNCIONÁRIO --- 1 --- < TREINA > --- N --- CLIENTE
+
+CLIENTE --- N --- < CONSULTA > --- 1 --- FUNCIONÁRIO
+
+CLIENTE === M === < FREQUENTA > === N === ESPAÇO
+
+FUNCIONÁRIO --- 1 --- < GERE > === 1 === ESPAÇO
+
+FUNCIONÁRIO === N === < TRABALHA_EM(HoraInic, HoraFim) > === 1 === ESPAÇO
+
+FORNECEDOR === M === < FORNECE > === N === ESPAÇO

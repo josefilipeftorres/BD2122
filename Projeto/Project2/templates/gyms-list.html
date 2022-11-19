@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Gyms{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Name</b></th>
+    <th><b>Manager</b></th>
+    <th><b>Phone</b></th>
+   </tr>
+  {% for gym in gyms %}
+    <tr>
+      <td><a href="/gyms/{{ gym.CodEspaco }}">{{ gym.Nome }}</a></td>
+      <td>{{ gym.FuncNome }}</td>
+      <td>{{ gym.Num }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

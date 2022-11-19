@@ -1,0 +1,8 @@
+-- 5.1
+DELETE FROM POST WHERE Num = 5;
+
+-- 5.2
+DELETE FROM COMMENT WHERE Author = 2;
+
+-- 5.3
+DELETE FROM FOLLOWER WHERE User = 2 OR Follower = 2;
